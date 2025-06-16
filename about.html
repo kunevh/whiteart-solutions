@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us - White Art Interior and Exterior Solutions</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+    .header-logo {
+      height: 100px;
+      width: auto;
+    }
+    @media (max-width: 768px) {
+      .header-logo {
+        height: 80px;
+      }
+    }
+    /* Specific styles for the about page images */
+    .about-image {
+      border-radius: 0.75rem; /* rounded-xl in Tailwind */
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl in Tailwind */
+      width: 100%;
+      height: 250px; /* Adjusted height for consistency */
+      object-fit: cover; /* Ensures image covers the area, might crop edges */
+    }
+    /* Adjustments for the two images in one block */
+    .about-image-small {
+      height: 150px; /* Adjusted slightly smaller height for two images side-by-side */
+    }
+    @media (min-width: 768px) {
+      .about-image {
+        height: 350px; /* Taller on desktop, adjusted */
+      }
+      .about-image-small {
+        height: 250px; /* Taller on desktop for two images, adjusted */
+      }
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+
+  <header class="bg-gray-50 shadow-md">
+    <div class="flex justify-start items-center py-4 pl-16 pr-12">
+      <a href="index.html" class="flex items-center">
+        <img src="logo_za_slagane.png" alt="White Art Logo" class="header-logo" />
+      </a>
+      <nav class="ml-auto space-x-6 text-gray-700">
+        <a href="index.html" class="hover:text-gray-900">Home</a>
+        <a href="about.html" class="font-semibold text-gray-900">About</a>
+        <a href="portfolio.html" class="hover:text-gray-900">Portfolio</a>
+        <a href="pricing.html" class="hover:text-gray-900">Pricing</a>
+        <a href="contact.html" class="hover:text-gray-900">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 py-16">
+    <h1 class="text-4xl font-extrabold mb-8 text-center text-gray-900">About White Art Interior and Exterior Solutions</h1>
+
+    <section class="mb-16">
+      <p class="text-gray-700 text-xl leading-relaxed mb-6 text-center">
+        At <strong>White Art Interior and Exterior Solutions</strong>, we blend <strong>creative design principles with functional aesthetics</strong> with <strong>innovative remote design services</strong> to transform your living and working spaces, <strong>no matter where you are in the world</strong>.
+      </p>
+      <p class="text-gray-700 text-lg leading-relaxed text-center">
+        Our focus is on creating timeless, functional, and inspiring environments that perfectly align with your vision and lifestyle.
+      </p>
+    </section>
+
+    <section class="grid md:grid-cols-2 gap-12 items-center mb-16">
+      <div class="md:order-2">
+        <img src="https://images.unsplash.com/photo-1720983590448-28b749bd403d?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Designer working on a desk" class="about-image">
+      </div>
+      <div class="md:order-1">
+        <h2 class="text-3xl font-bold mb-4 text-gray-800">Our Philosophy: Design Without Boundaries</h2>
+        <p class="text-gray-700 text-lg leading-relaxed mb-4">
+          We believe exceptional design shouldn't be limited by geography. Our remote model ensures that you receive world-class interior design expertise and personalized attention, all from the comfort of your home. We excel in understanding your needs through detailed consultations and leveraging cutting-edge technology for precise planning and stunning 3D visualizations.
+        </p>
+        <p class="text-gray-700 text-lg leading-relaxed">
+          Our commitment is to clarity, elegance, and client collaboration. We don't just design spaces; we craft experiences that reflect your unique personality and aspirations.
+        </p>
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">How We Bring Your Vision to Life</h2>
+      <div class="space-y-12">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <img src="https://images.unsplash.com/photo-1604952703578-8ae924053711?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Conceptualization and Design - Exterior" class="about-image">
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold mb-3 text-gray-800">1. Conceptualization & Detailed Design</h3>
+            <p class="text-gray-700 text-lg leading-relaxed">
+              Our process begins with in-depth discussions to grasp your style, preferences, and functional needs. We then translate these insights into meticulous layout plans, material selections, and stunning 3D visualizations that bring your future space to life. We refine every detail until it perfectly matches your vision.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="md:order-2">
+            <img src="https://plus.unsplash.com/premium_photo-1701008387359-30b955244d1c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Remote Collaboration" class="about-image">
+          </div>
+          <div class="md:order-1">
+            <h3 class="text-2xl font-semibold mb-3 text-gray-800">2. Seamless Remote Collaboration</h3>
+            <p class="text-gray-700 text-lg leading-relaxed">
+              Despite the distance, our collaboration is seamless. Through regular virtual meetings and shared digital platforms, we ensure constant communication and transparency. You're involved at every step, providing feedback that shapes the design, ensuring the final result is truly yours.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="grid grid-cols-2 gap-4">
+            <img src="https://images.unsplash.com/photo-1670222783941-c1bee0e32c85?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project Plan" class="about-image about-image-small">
+            <img src="https://images.unsplash.com/photo-1649930536248-df58fd1f54f8?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Finished Interior" class="about-image about-image-small">
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold mb-3 text-gray-800">3. Comprehensive Project Delivery</h3>
+            <p class="text-gray-700 text-lg leading-relaxed">
+              Upon finalization, we deliver a comprehensive package including detailed plans, material specifications, and 3D renderings. These visuals, combined with our expert guidance, ensure a smooth transition from concept to completion. We empower you or your local contractors to execute the vision flawlessly, bringing your dream space to life with precision.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-indigo-50 p-8 rounded-lg shadow-lg text-center">
+      <h2 class="text-3xl font-bold text-indigo-800 mb-4">Ready to Transform Your Space?</h2>
+      <p class="text-indigo-700 text-lg mb-6 max-w-2xl mx-auto">
+        Whether you're planning a full renovation or a subtle refresh, our team is here to guide you. Contact us today to discuss your project and discover how White Art can bring your dream space to life.
+      </p>
+      <a href="contact.html" class="inline-block bg-indigo-600 text-white text-xl font-semibold py-3 px-8 rounded-full hover:bg-indigo-700 transition duration-300 ease-in-out transform hover:scale-105">
+        Get in Touch
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="bg-gray-50 text-gray-700 py-8 px-6 text-center shadow-inner mt-16">
+    <div class="max-w-5xl mx-auto">
+      <img src="logo_za_slagane.png" alt="White Art Logo" class="mx-auto h-24 mb-4" />
+      <p class="text-sm">&copy; 2025 White Art Interior and Exterior Solutions. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

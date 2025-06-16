@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact Us</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: #222;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    padding: 1rem 3rem 1rem 4rem; /* top, right, bottom, left -> 16px 48px 16px 64px */
+    border-bottom: 1px solid #ddd;
+  }
+  .header-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+  }
+  
+  .contact-nav {
+    display: flex;
+    gap: 1.5rem; /* spacing between links */
+    margin-left: auto; /* Pushes nav to the right */
+    color: #718096; /* Gray text color */
+  }
+  .contact-nav a {
+    text-decoration: none;
+    font-weight: normal; /* Вече не са болднати */
+    color: #718096;
+  }
+  .contact-nav a:hover {
+    color: #2d3748; /* Darker gray on hover */
+  }
+
+  main {
+    padding: 30px 20px;
+    max-width: 700px;
+    margin: auto;
+  }
+  h1 {
+    margin-bottom: 20px;
+  }
+  /* Добавяме малко отстояние между двата параграфа за по-добра четимост */
+  main p + p {
+    margin-top: 1rem;
+  }
+  .contact-info {
+    margin-top: 40px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">
+      <img src="logo_za_slagane.png" alt="White Art Logo" class="header-logo" />
+  </a>
+  <nav class="contact-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Contact Us</h1>
+  <p>We are eager to connect with you!</p>
+  <p>Share your vision and project details, and let's discuss how our expertise in interior design can bring your dream space to life. We look forward to collaborating with you.</p>
+
+  <div class="contact-info">
+    <strong>Address:</strong> 1509 Evenstar Blvd, Unit 105, Carmel, IN<br />
+    <strong>Phone:</strong> +1 463-867-7471<br />
+    <strong>Email:</strong> info@whiteart-solutions.com
+  </div>
+</main>
+
+<footer style="background-color: #F7FAFC; text-align: center; padding: 1.5rem 0; font-size: 0.875rem; color: #A0AEC0;">
+    <img src="logo_za_slagane.png" alt="White Art Logo" style="height: 60px; margin: 0 auto 0.5rem auto; display: block;" />
+    © 2025 All rights reserved.
+</footer>
+
+</body>
+</html>

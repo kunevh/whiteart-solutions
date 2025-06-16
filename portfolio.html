@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    /* Основни стилове, които не се управляват от Tailwind или са специфични за хедъра */
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden; /* Предотвратява хоризонтално скролване на цялата страница */
+    }
+    .header-logo {
+      height: 100px;
+      width: auto;
+    }
+    @media (max-width: 768px) {
+      .header-logo {
+        height: 80px;
+      }
+    }
+    /* Допълнителен стил за курсора на кориците и галерийните елементи */
+    .cover-image-container, .gallery-item img {
+        cursor: pointer; /* Показва, че е кликаемо */
+    }
+
+    /* Lightbox Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 50;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease; /* Анимация за появяване */
+      padding: 1rem; /* Добавя малък padding за по-добър вид */
+    }
+    .modal.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-content {
+      position: relative;
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      max-width: 95vw; /* Allow more width */
+      max-height: 95vh; /* Allow more height */
+      overflow: auto; /* Allow scrolling if content is larger than container */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Добавя сянка за по-добър вид */
+    }
+    .modal-content img {
+      /* Removed max-width: 100%; max-height: 100%; object-fit: contain; */
+      /* This allows the image to be its natural size and trigger scroll if larger */
+      display: block; /* Prevents extra space below image */
+      /* Optional: if you want a minimum scaling, use: */
+      /* max-width: 100%; */
+      /* max-height: 100%; */
+      /* object-fit: scale-down; */
+      /* But for manual scrolling, better to let it be natural size if needed. */
+    }
+    .close-button {
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
+      color: #fff; /* Бял цвят за по-добра видимост на тъмен фон */
+      font-size: 3rem; /* По-голям размер */
+      cursor: pointer;
+      line-height: 1; /* Премахва допълнителното разстояние около X */
+      text-shadow: 0 0 5px rgba(0,0,0,0.7); /* Лека сянка за четимост */
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+
+  <header class="bg-gray-50 shadow-md">
+    <div class="flex justify-start items-center py-4 pl-16 pr-12">
+      <a href="index.html" class="flex items-center">
+        <img src="logo_za_slagane.png" alt="White Art Logo" class="header-logo" />
+      </a>
+      <nav class="ml-auto space-x-6 text-gray-700">
+        <a href="index.html" class="hover:text-gray-900">Home</a>
+        <a href="about.html" class="hover:text-gray-900">About</a>
+        <a href="portfolio.html" class="font-semibold text-gray-900">Portfolio</a> <a href="pricing.html" class="hover:text-gray-900">Pricing</a>
+        <a href="contact.html" class="hover:text-gray-900">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 py-16">
+    <h1 class="text-4xl font-extrabold mb-6 text-center">Our Portfolio</h1>
+    <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-8 text-center leading-relaxed">
+      Explore a selection of our finest interior and exterior design projects. Click on a category cover to view the full gallery.
+    </p>
+
+    <div id="categoryOverview" class="grid md:grid-cols-2 gap-8 mb-16">
+        <div class="flex flex-col items-center text-center p-4 bg-gray-100 rounded-lg shadow-md cover-image-container" data-gallery="interior">
+            <h2 class="text-2xl font-bold mb-4">Check our selected interiors</h2>
+            <img src="https://plus.unsplash.com/premium_photo-1683129637833-a3680041faf0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Interior Portfolio Cover" class="w-full h-60 object-cover rounded-md mb-4 shadow-sm">
+            <p class="text-gray-700">Discover our refined interior design projects.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center p-4 bg-gray-100 rounded-lg shadow-md cover-image-container" data-gallery="exterior">
+            <h2 class="text-2xl font-bold mb-4">Enjoy our valued exterior solutions</h2>
+            <img src="https://images.unsplash.com/photo-1604952703578-8ae924053711?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Exterior Portfolio Cover" class="w-full h-60 object-cover rounded-md mb-4 shadow-sm">
+            <p class="text-gray-700">Explore our innovative exterior design solutions.</p>
+        </div>
+    </div>
+
+    <div id="interiorGallery" class="gallery-section hidden">
+        <h2 class="text-3xl font-bold mb-6 text-center">Selected Interior Projects</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <div class="gallery-item block">
+                <img src="https://i.imgur.com/AB9Kr2l.jpeg" data-src="https://i.imgur.com/AB9Kr2l.jpeg" alt="Minimalist hallway" class="w-full h-60 object-cover rounded-lg shadow-md">
+                <p class="text-center text-sm text-gray-600 mt-2">Minimalist hallway with monochrome palette and clean geometry.</p>
+            </div>
+
+            <div class="gallery-item block">
+                <img src="https://i.imgur.com/XEM60bi.jpeg" data-src="https://i.imgur.com/XEM60bi.jpeg" alt="Contemporary corridor" class="w-full h-60 object-cover rounded-lg shadow-md">
+                <p class="text-center text-sm text-gray-600 mt-2">Contemporary corridor with dark wood accents and gray tones.</p>
+            </div>
+
+            <div class="gallery-item block">
+                <img src="https://i.imgur.com/Mex1Mor.jpeg" data-src="https://i.imgur.com/Mex1Mor.jpeg" alt="Hallway in modern Italian style" class="w-full h-60 object-cover rounded-lg shadow-md">
+                <p class="text-center text-sm text-gray-600 mt-2">Hallway in modern Italian style – elegant and clean-lined.</p>
+            </div>
+
+            <div class="gallery-item block">
+                <img src="https://i.imgur.com/DkMKztz.jpeg" data-src="https://i.imgur.com/DkMKztz.jpeg" alt="Secondary bedroom with classic detailing" class="w-full h-60 object-cover rounded-lg shadow-md">
+                <p class="text-center text-sm text-gray-600 mt-2">Secondary bedroom with classic detailing and calm palette.</p>
+            </div>
+
+            <div class="gallery-item block">
+                <img src="https://i.imgur.com/NoFek3T.jpeg" data-src="https://i.imgur.com/NoFek3T.jpeg" alt="Italian-inspired interior" class="w-full h-60 object-cover rounded-lg shadow-md">
+                <p class="text-center text-sm text-gray-600 mt-2">Italian-inspired interior with focus on proportion and light.</p>
+            </div>
+
+            <div class="gallery-item block">
+                <img src="https://i.imgur.com/mSVJCbP.jpeg" data-src="https://i.imgur.com/mSVJCbP.jpeg" alt="Secondary bedroom with a retro mood" class="w-full h-60 object-cover rounded-lg shadow-md">
+                <p class="text-center text-sm text-gray-600 mt-2">Secondary bedroom with a retro mood and visual balance.</p>
+            </div>
+
+            <div class="gallery-item block">
+                <img src="https://i.imgur.com/TvKv92X.jpeg" data-src="https://i.imgur.com/TvKv92X.jpeg" alt="Open-plan living area" class="w-full h-60 object-cover rounded-lg shadow-md">
+                <p class="text-center text-sm text-gray-600 mt-2">Open-plan living area with integrated kitchen — airy and bright.</p>
+            </div>
+
+            <div class="gallery-item block">
+                <img src="https://i.imgur.com/rYm0sns.jpeg" data-src="https://i.imgur.com/rYm0sns.jpeg" alt="Dining space" class="w-full h-60 object-cover rounded-lg shadow-md">
+                <p class="text-center text-sm text-gray-600 mt-2">Dining space with Italian rustic elegance and warmth.</p>
+            </div>
+
+            <div class="gallery-item block">
+                <img src="https://i.imgur.com/NDSFZ4t.jpeg" data-src="https://i.imgur.com/NDSFZ4t.jpeg" alt="Secondary bedroom with subtle marble" class="w-full h-60 object-cover rounded-lg shadow-md">
+                <p class="text-center text-sm text-gray-600 mt-2">Secondary bedroom with subtle marble and gold details.</p>
+            </div>
+
+            <div class="gallery-item block">
+                <img src="https://i.imgur.com/dvgHPe2.jpeg" data-src="https://i.imgur.com/dvgHPe2.jpeg" alt="Master bedroom with minimalist lines" class="w-full h-60 object-cover rounded-lg shadow-md">
+                <p class="text-center text-sm text-gray-600 mt-2">Master bedroom with minimalist lines and French inspiration.</p>
+            </div>
+
+            <div class="gallery-item block">
+                <img src="https://i.imgur.com/X9FtNPs.jpeg" data-src="https://i.imgur.com/X9FtNPs.jpeg" alt="Secondary bedroom with warm lighting" class="w-full h-60 object-cover rounded-lg shadow-md">
+                <p class="text-center text-sm text-gray-600 mt-2">Secondary bedroom with warm lighting and soft materials.</p>
+            </div>
+
+            <div class="gallery-item block">
+                <img src="https://i.imgur.com/9qBBtux.jpeg" data-src="https://i.imgur.com/9qBBtux.jpeg" alt="Transition between kitchen and living zone" class="w-full h-60 object-cover rounded-lg shadow-md">
+                <p class="text-center text-sm text-gray-600 mt-2">Transition between kitchen and living zone – seamless and bright.</p>
+            </div>
+             <div class="gallery-item block">
+                <img src="https://i.imgur.com/Vx8Bu0D.jpeg" data-src="https://i.imgur.com/Vx8Bu0D.jpeg" alt="Elegant living room" class="w-full h-60 object-cover rounded-lg shadow-md">
+                <p class="text-center text-sm text-gray-600 mt-2">Elegant living room with classic design and abundant natural light.</p>
+            </div>
+            <div class="gallery-item block">
+                <img src="https://i.imgur.com/927wr7h.jpeg" data-src="https://i.imgur.com/927wr7h.jpeg" alt="Spacious kitchen interior" class="w-full h-60 object-cover rounded-lg shadow-md">
+                <p class="text-center text-sm text-gray-600 mt-2">Spacious kitchen interior with modern appliances and clean finishes.</p>
+            </div>
+            <div class="gallery-item block">
+                <img src="https://i.imgur.com/iMwxTi4.jpeg" data-src="https://i.imgur.com/iMwxTi4.jpeg" alt="Cozy reading nook" class="w-full h-60 object-cover rounded-lg shadow-md">
+                <p class="text-center text-sm text-gray-600 mt-2">Cozy reading nook with a comfortable armchair and soft lighting.</p>
+            </div>
+        </div>
+        <button id="backToCategoriesInterior" class="bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition duration-150 ease-in-out">
+            &larr; Back to Categories
+        </button>
+    </div>
+
+    <div id="exteriorGallery" class="gallery-section hidden">
+        <h2 class="text-3xl font-bold mb-6 text-center">Valued Exterior Projects</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <div class="gallery-item block">
+                <img src="https://i.imgur.com/riRWo7U.jpeg" data-src="https://i.imgur.com/riRWo7U.jpeg" alt="Expansive modern house" class="w-full h-60 object-cover rounded-lg shadow-md">
+                <p class="text-center text-sm text-gray-600 mt-2">Expansive modern house with clean lines and large windows.</p>
+            </div>
+            <div class="gallery-item block">
+                <img src="https://i.imgur.com/y7T0uPt.jpeg" data-src="https://i.imgur.com/y7T0uPt.jpeg" alt="Contemporary home with minimalist landscape" class="w-full h-60 object-cover rounded-lg shadow-md">
+                <p class="text-center text-sm text-gray-600 mt-2">Contemporary home with minimalist landscape and serene atmosphere.</p>
+            </div>
+            <div class="gallery-item block">
+                <img src="https://i.imgur.com/FtsrJHD.jpeg" data-src="https://i.imgur.com/FtsrJHD.jpeg" alt="Luxury villa with infinity pool" class="w-full h-60 object-cover rounded-lg shadow-md">
+                <p class="text-center text-sm text-gray-600 mt-2">Luxury villa with infinity pool blending with the horizon.</p>
+            </div>
+            <div class="gallery-item block">
+                <img src="https://i.imgur.com/J7gDdio.jpeg" data-src="https://i.imgur.com/J7gDdio.jpeg" alt="Modern family residence" class="w-full h-60 object-cover rounded-lg shadow-md">
+                <p class="text-center text-sm text-gray-600 mt-2">Modern family residence with inviting outdoor living spaces.</p>
+            </div>
+            <div class="gallery-item block">
+                <img src="https://i.imgur.com/qqkb1vR.jpeg" data-src="https://i.imgur.com/qqkb1vR.jpeg" alt="Sleek architectural design" class="w-full h-60 object-cover rounded-lg shadow-md">
+                <p class="text-center text-sm text-gray-600 mt-2">Sleek architectural design integrated with natural surroundings.</p>
+            </div>
+        </div>
+        <button id="backToCategoriesExterior" class="bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition duration-150 ease-in-out">
+            &larr; Back to Categories
+        </button>
+    </div>
+
+  </main>
+
+  <footer class="bg-gray-50 text-gray-700 py-8 px-6 text-center shadow-inner">
+    <div class="max-w-5xl mx-auto">
+      <img src="logo_za_slagane.png" alt="White Art Logo" class="mx-auto h-24 mb-4" />
+      <p class="text-sm">&copy; 2025 European Interiors. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div id="imageModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <img id="modalImage" src="" alt="Maximized Image">
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const categoryOverview = document.getElementById('categoryOverview');
+        const interiorGallery = document.getElementById('interiorGallery');
+        const exteriorGallery = document.getElementById('exteriorGallery');
+        const backToCategoriesInterior = document.getElementById('backToCategoriesInterior');
+        const backToCategoriesExterior = document.getElementById('backToCategoriesExterior');
+
+        const coverCategoryDivs = document.querySelectorAll('.cover-image-container');
+
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const closeButton = document.querySelector('.close-button');
+
+        // Function to show a specific gallery and hide others
+        function showGallery(galleryId, pushState = true) {
+            categoryOverview.classList.add('hidden');
+            interiorGallery.classList.add('hidden');
+            exteriorGallery.classList.add('hidden');
+
+            document.getElementById(galleryId).classList.remove('hidden');
+            window.scrollTo(0, 0);
+
+            if (pushState) {
+                const galleryName = galleryId.replace('Gallery', '');
+                history.pushState({ gallery: galleryName }, '', '?gallery=' + galleryName);
+            }
+        }
+
+        // Function to show categories view
+        function showCategories(pushState = true) {
+            interiorGallery.classList.add('hidden');
+            exteriorGallery.classList.add('hidden');
+            categoryOverview.classList.remove('hidden');
+            window.scrollTo(0, 0);
+
+            if (pushState) {
+                history.pushState({ gallery: 'categories' }, '', 'portfolio.html');
+            }
+        }
+
+        // Event listeners for category covers
+        coverCategoryDivs.forEach(coverDiv => {
+            coverDiv.addEventListener('click', function() {
+                const galleryType = this.dataset.gallery;
+                showGallery(galleryType + 'Gallery');
+            });
+        });
+
+        // Event listeners for "Back to Categories" buttons
+        backToCategoriesInterior.addEventListener('click', showCategories);
+        backToCategoriesExterior.addEventListener('click', showCategories);
+
+        // Handle browser's back/forward buttons
+        window.addEventListener('popstate', function(event) {
+            if (event.state && event.state.gallery) {
+                if (event.state.gallery === 'categories') {
+                    showCategories(false);
+                } else {
+                    showGallery(event.state.gallery + 'Gallery', false);
+                }
+            } else {
+                showCategories(false);
+            }
+        });
+
+        // Initial state handling on page load
+        const urlParams = new URLSearchParams(window.location.search);
+        const initialGallery = urlParams.get('gallery');
+        if (initialGallery === 'interior') {
+            showGallery('interiorGallery', false);
+        } else if (initialGallery === 'exterior') {
+            showGallery('exteriorGallery', false);
+        } else {
+            showCategories(false);
+        }
+
+        // Lightbox functionality using event delegation
+        document.querySelector('main').addEventListener('click', function(event) {
+            let clickedElement = event.target;
+            if (clickedElement.tagName === 'IMG' && clickedElement.closest('.gallery-item')) {
+                 event.preventDefault();
+                 const imageSrc = clickedElement.getAttribute('data-src');
+                 if (imageSrc) {
+                     modalImage.src = imageSrc;
+                     // Ensure image loads fully before displaying modal to get correct dimensions
+                     modalImage.onload = () => {
+                         modal.classList.add('show');
+                         document.body.style.overflow = 'hidden'; // Prevent body scroll
+                     };
+                     // Handle cached images that might not trigger onload
+                     if (modalImage.complete) {
+                         modal.classList.add('show');
+                         document.body.style.overflow = 'hidden'; // Prevent body scroll
+                     }
+                 }
+            }
+        });
+
+        closeButton.addEventListener('click', function() {
+            modal.classList.remove('show');
+            document.body.style.overflow = ''; // Restore body scroll
+        });
+
+        modal.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.classList.remove('show');
+                document.body.style.overflow = ''; // Restore body scroll
+            }
+        });
+    });
+  </script>
+
+</body>
+</html>

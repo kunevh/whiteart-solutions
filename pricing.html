@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pricing</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    /* Основни стилове, които не се управляват от Tailwind или са специфични за хедъра */
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden; /* Предотвратява хоризонтално скролване на цялата страница */
+    }
+    .header-logo {
+      height: 100px;
+      width: auto;
+    }
+    @media (max-width: 768px) {
+      .header-logo {
+        height: 80px;
+      }
+    }
+    /* Скриване на модалния прозорец по подразбиране */
+    .modal {
+      display: none;
+      /* Добавяне на скролване за модала */
+      overflow-y: auto; /* Позволява вертикално скролване в модала */
+    }
+    /* Допълнителен стил за курсора, за да е ясно, че снимката е кликаема */
+    .gallery-item img {
+        cursor: pointer;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+
+  <header class="bg-gray-50 shadow-md">
+    <div class="flex justify-start items-center py-4 pl-16 pr-12">
+      <a href="index.html" class="flex items-center">
+        <img src="logo_za_slagane.png" alt="White Art Logo" class="header-logo" />
+      </a>
+      <nav class="ml-auto space-x-6 text-gray-700">
+        <a href="index.html" class="hover:text-gray-900">Home</a>
+        <a href="about.html" class="hover:text-gray-900">About</a>
+        <a href="portfolio.html" class="hover:text-gray-900">Portfolio</a>
+        <a href="pricing.html" class="font-semibold text-gray-900">Pricing</a> <a href="contact.html" class="hover:text-gray-900">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 py-16">
+    <h1 class="text-4xl font-extrabold mb-6 text-center">Maximize Your Business's Potential with Tailored Solutions</h1>
+    <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-8 text-center leading-relaxed">
+      At European Interiors, we understand that every project is unique. That's why we don't offer generic, one-size-fits-all pricing packages. Instead, we believe in providing a truly bespoke experience by crafting custom solutions and proposals specifically designed to meet your individual needs and aspirations.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-8 mb-16">
+      <div class="bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+        <h2 class="text-2xl font-bold mb-4">Interior Solutions</h2>
+        <p class="text-gray-700 text-lg leading-relaxed mb-4">
+          From concept development to detailed 3D visualizations, we transform your indoor spaces into functional, beautiful, and inspiring environments. Our remote design process ensures seamless collaboration and stunning results, regardless of your location.
+        </p>
+        <a href="#" class="gallery-item w-full block mb-4">
+            <img src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" data-src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Interior Design Concept" class="w-full h-60 object-cover rounded-md shadow-sm">
+        </a>
+        <a href="#" class="gallery-item w-full block">
+            <img src="https://images.unsplash.com/photo-1495433324511-bf8e92934d90?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" data-src="https://images.unsplash.com/photo-1495433324511-bf8e92934d90?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Modern Interior Living Room" class="w-full h-60 object-cover rounded-md shadow-sm">
+        </a>
+      </div>
+
+      <div class="bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+        <h2 class="text-2xl font-bold mb-4">Exterior Solutions</h2>
+        <p class="text-gray-700 text-lg leading-relaxed mb-4">
+          Extend your aesthetic appeal beyond the walls with our exterior design services. We craft concepts for facades, landscaping, and outdoor living areas that complement your interior style and enhance your property's overall charm and value.
+        </p>
+        <a href="#" class="gallery-item w-full block mb-4">
+            <img src="https://images.unsplash.com/photo-1560184897-ae75f418493e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" data-src="https://images.unsplash.com/photo-1560184897-ae75f418493e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Modern House Exterior" class="w-full h-60 object-cover rounded-md shadow-sm">
+        </a>
+        <a href="#" class="gallery-item w-full block">
+            <img src="https://plus.unsplash.com/premium_photo-1661962769148-fbe587e60fb8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" data-src="https://plus.unsplash.com/premium_photo-1661962769148-fbe587e60fb8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="House with Garden" class="w-full h-60 object-cover rounded-md shadow-sm">
+        </a>
+      </div>
+
+      <div class="bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+        <h2 class="text-2xl font-bold mb-4">Complex Solutions</h2>
+        <p class="text-gray-700 text-lg leading-relaxed mb-4">
+          For projects requiring a holistic approach, our complex solutions integrate interior, exterior, and architectural concepts. We provide comprehensive plans that ensure cohesion and harmony across your entire property, delivering a unified and sophisticated design.
+        </p>
+        <a href="#" class="gallery-item w-full block mb-4">
+            <img src="https://plus.unsplash.com/premium_photo-1726840832490-c5e188a900f4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" data-src="https://plus.unsplash.com/premium_photo-1726840832490-c5e188a900f4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Architectural Building Design" class="w-full h-60 object-cover rounded-md shadow-sm">
+        </a>
+        <a href="#" class="gallery-item w-full block">
+            <img src="https://plus.unsplash.com/premium_photo-1661335283480-4ec3eae8d313?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" data-src="https://plus.unsplash.com/premium_photo-1661335283480-4ec3eae8d313?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Urban Planning Concept" class="w-full h-60 object-cover rounded-md shadow-sm">
+        </a>
+      </div>
+    </div>
+
+    <hr class="my-10 border-t border-gray-300">
+
+    <h2 class="text-2xl font-bold mb-4">Ready to Achieve More?</h2>
+    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+      We know your requirements are specific. Therefore, instead of offering you generic pricing,
+      <strong class="font-bold">we will prepare a proposal fully tailored to your unique needs and goals.</strong>
+      Contact us today to discuss your project and receive a <strong class="font-bold">personalized offer</strong> that will help you turn your ideas into reality.
+    </p>
+
+    <div class="bg-indigo-100 border-l-4 border-indigo-500 text-indigo-800 p-6 my-10 rounded-lg shadow-md flex flex-col md:flex-row items-center justify-between">
+      <p class="text-lg font-semibold mb-4 md:mb-0 md:mr-6">
+        Have questions or want a personalized quote? Get in touch with us!
+      </p>
+      <a href="contact.html" class="inline-block bg-indigo-600 text-white py-3 px-8 rounded-lg font-semibold hover:bg-indigo-700 transition duration-150 ease-in-out">
+        Contact Us
+      </a>
+    </div>
+  </main>
+
+  <footer class="bg-gray-50 text-gray-700 py-8 px-6 text-center shadow-inner">
+    <div class="max-w-5xl mx-auto">
+      <img src="logo_za_slagane.png" alt="White Art Logo" class="mx-auto h-24 mb-4" />
+      <p class="text-sm">&copy; 2025 European Interiors. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div id="imageModal" class="modal fixed inset-0 bg-black bg-opacity-90 flex justify-center items-center z-50 p-4">
+    <div class="relative w-full max-w-4xl max-h-full bg-white rounded-lg overflow-y-auto"> <span class="close-button absolute top-2 right-4 text-gray-800 text-5xl cursor-pointer leading-none font-bold">&times;</span>
+      <img id="modalImage" src="" alt="Maximized Image" class="w-full h-auto object-contain p-4"> </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const closeButton = document.querySelector('.close-button');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function(event) {
+                event.preventDefault();
+                const imageSrc = this.getAttribute('data-src');
+                modalImage.src = imageSrc;
+                modal.style.display = 'flex';
+                // Деактивиране на скролването на body, докато модалът е отворен
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        closeButton.addEventListener('click', function() {
+            modal.style.display = 'none';
+            // Активиране на скролването на body, след като модалът е затворен
+            document.body.style.overflow = '';
+        });
+
+        modal.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+    });
+  </script>
+
+</body>
+</html>
